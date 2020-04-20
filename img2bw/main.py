@@ -8,17 +8,17 @@ def main():
 
     # Mandatory parameters
     parser.add_argument('input', help="Input file or directory")
-    parser.add_argument('--output', help="Output file or directory", default=None)
-    parser.add_argument('--output-ext', help="Output file extension",
+    parser.add_argument('-o', '--output', help="Output file or directory", default=None)
+    parser.add_argument('-e', '--output-ext', help="Output file extension",
                         choices=img2bw.VALID_EXTENSIONS, default=img2bw.VALID_EXTENSIONS[0])
 
     # Options
     ALGORITHMS_MODES = img2bw.METHODS_AVAILABLE + ["try-all"]
-    parser.add_argument('--method', help="Method used to perform the binarization",
+    parser.add_argument('-m', '--method', help="Method used to perform the binarization",
                         choices=ALGORITHMS_MODES, default=ALGORITHMS_MODES[0])
-    parser.add_argument('--block-size', help="Odd size of pixel neighborhood which is used to calculate the "
+    parser.add_argument('-b', '--block-size', help="Odd size of pixel neighborhood which is used to calculate the "
                                              "threshold value (local threshold)", default=35, type=int)
-    parser.add_argument('--num-classes', help="Number of classes to be thresholded (multiotsu)", default=3, type=int)
+    parser.add_argument('-c', '--num-classes', help="Number of classes to be thresholded (multiotsu)", default=3, type=int)
 
     args = parser.parse_args()
     if args.input:

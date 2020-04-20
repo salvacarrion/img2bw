@@ -42,10 +42,9 @@ img2bw input_dir/ --output output_dir/
 To view all the available options, type `img2bw --help` in the terminal:
 
 ```
-usage: img2bw [-h] [--output OUTPUT]
-              [--output-ext {jpg,jpeg,jfif,png,tiff,bmp,pnm}]
-              [--method {otsu,isodata,li,local,mean,minimum,multiotsu,niblack,sauvola,triangle,yen,try-all}]
-              [--block-size BLOCK_SIZE] [--num-classes NUM_CLASSES]
+usage: img2bw [-h] [-o OUTPUT] [-e {jpg,jpeg,jfif,png,tiff,bmp,pnm}]
+              [-m {otsu,isodata,li,local,mean,minimum,multiotsu,niblack,sauvola,triangle,yen,try-all}]
+              [-b BLOCK_SIZE] [-c NUM_CLASSES]
               input
 
 positional arguments:
@@ -53,14 +52,15 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  --output OUTPUT       Output file or directory
-  --output-ext {jpg,jpeg,jfif,png,tiff,bmp,pnm}
+  -o OUTPUT, --output OUTPUT
+                        Output file or directory
+  -e {jpg,jpeg,jfif,png,tiff,bmp,pnm}, --output-ext {jpg,jpeg,jfif,png,tiff,bmp,pnm}
                         Output file extension
-  --method {otsu,isodata,li,local,mean,minimum,multiotsu,niblack,sauvola,triangle,yen,try-all}
+  -m {otsu,isodata,li,local,mean,minimum,multiotsu,niblack,sauvola,triangle,yen,try-all}, --method {otsu,isodata,li,local,mean,minimum,multiotsu,niblack,sauvola,triangle,yen,try-all}
                         Method used to perform the binarization
-  --block-size BLOCK_SIZE
+  -b BLOCK_SIZE, --block-size BLOCK_SIZE
                         Odd size of pixel neighborhood which is used to
                         calculate the threshold value (local threshold)
-  --num-classes NUM_CLASSES
+  -c NUM_CLASSES, --num-classes NUM_CLASSES
                         Number of classes to be thresholded (multiotsu)
 ```
