@@ -37,6 +37,7 @@ img2bw input_dir/ --output output_dir/
 ```
 
 > If no method is specified, `otsu` will be used.
+>
 > You can try all the methods using `--method try-all`
 
 
