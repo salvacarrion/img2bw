@@ -12,7 +12,7 @@ with open('requirements.txt') as f:
 
 # Setup project
 setup(name='img2bw',
-      version='0.1.2',
+      version='0.1.3',
       description='Command-line application to binarize images',
     long_description=long_description,
     long_description_content_type='text/markdown',

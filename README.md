@@ -4,7 +4,7 @@
 
 **Supported binarizers:** otsu, isodata, li, local, mean, minimum, multiotsu, niblack, sauvola, triangle, yen.
 
-![](https://github.com/salvacarrion/img2bw/blob/master/data/readme/montaje_small.jpg)
+![](https://raw.githubusercontent.com/salvacarrion/img2bw/master/data/readme/montaje_small.jpg)
 
 
 ## Requirements
