@@ -2,26 +2,19 @@
 
 **img2bw** is a simple command line application to binary images.
 
-Supported binarizers:
+**Supported binarizers:** otsu, isodata, li, local, mean, minimum, multiotsu, niblack, sauvola, triangle, yen.
 
-- otsu
-- isodata
-- li
-- local
-- mean
-- minimum
-- multiotsu
-- niblack
-- sauvola
-- triangle
-- yen
+![](data/readme/montaje_small.jpg)
+
+
+## Requirements
+
+- Python3
 
 
 ## Installation
 
 Open the terminal, go to the folder of this package and type:
-
-On Ubuntu/Debian/MacOS:
 
 ```
 python setup.py install --user
@@ -42,7 +35,7 @@ img2bw example.jpg --method try-all
 To binarize all the images in a directory, type:
 
 ```
-img2bw input_dir/ --output output_dir/
+img2bw --input input_dir/ --output output_dir/
 ```
 
 
