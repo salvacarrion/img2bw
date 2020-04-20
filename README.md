@@ -30,12 +30,10 @@ To binarize a single image, type:
 img2bw example.jpg --method try-all
 ```
 
-> If no method is specified, `sauvola` will be used.
-
 To binarize all the images in a directory, type:
 
 ```
-img2bw --input input_dir/ --output output_dir/
+img2bw input_dir/ --output output_dir/
 ```
 
 
@@ -44,14 +42,17 @@ img2bw --input input_dir/ --output output_dir/
 To view all the available options, type `img2bw --help` in the terminal:
 
 ```
-usage: img2bw [-h] [--input INPUT] [--output OUTPUT]
+usage: img2bw [-h] [--output OUTPUT]
               [--output-ext {jpg,jpeg,jfif,png,tiff,bmp,pnm}]
               [--method {otsu,isodata,li,local,mean,minimum,multiotsu,niblack,sauvola,triangle,yen,try-all}]
               [--block-size BLOCK_SIZE] [--num-classes NUM_CLASSES]
+              input
+
+positional arguments:
+  input                 Input file or directory
 
 optional arguments:
   -h, --help            show this help message and exit
-  --input INPUT         Input file or directory
   --output OUTPUT       Output file or directory
   --output-ext {jpg,jpeg,jfif,png,tiff,bmp,pnm}
                         Output file extension
