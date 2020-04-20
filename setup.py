@@ -12,7 +12,7 @@ with open('requirements.txt') as f:
 
 # Setup project
 setup(name='img2bw',
-      version='0.1.3',
+      version='0.1.4',
       description='Command-line application to binarize images',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -20,9 +20,9 @@ setup(name='img2bw',
       author='Salva Carrión',
       license='MIT',
       packages=find_packages(),
-      package_data={
-          'data.raw': ['*.*'],
-      },
+      # package_data={
+      #     'data.raw': ['*.*'],
+      # },
       install_requires=requirements,
       zip_safe=False,
       entry_points={
