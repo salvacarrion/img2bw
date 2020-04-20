@@ -11,7 +11,7 @@ setup(name='img2bw',
       license='MIT',
       packages=find_packages(),
       package_data={
-          'examples.raw': ['*.*'],
+          'data.raw': ['*.*'],
       },
       install_requires=requirements,
       zip_safe=False,
@@ -20,5 +20,5 @@ setup(name='img2bw',
               'img2bw = img2bw:main'
           ]
       },
-      test_suite='tests.coverage',
+      #test_suite='tests.coverage',
       )
