@@ -7,15 +7,15 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 # Add requirements
-with open('requirements.txt') as f:
+with open(path.join(this_directory, 'requirements.txt')) as f:
     requirements = f.read().splitlines()
 
 # Setup project
 setup(name='img2bw',
-      version='0.1.4',
+      version='0.1.6',
       description='Command-line application to binarize images',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
+      long_description=long_description,
+      long_description_content_type='text/markdown',
       url='https://github.com/salvacarrion/img2bw',
       author='Salva Carrión',
       license='MIT',
@@ -23,8 +23,10 @@ setup(name='img2bw',
       # package_data={
       #     'data.raw': ['*.*'],
       # },
-      install_requires=requirements,
+      include_package_data=True,
       zip_safe=False,
+      platforms='any',
+      install_requires=requirements,
       entry_points={
           'console_scripts': [
               'img2bw = img2bw:main'
