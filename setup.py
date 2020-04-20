@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(name='img2bw',
       version='0.1',
-      description='Image binarizer',
+      description='Command-line application to binarize images',
       url='https://github.com/salvacarrion/img2bw',
       author='Salva Carrión',
       license='MIT',

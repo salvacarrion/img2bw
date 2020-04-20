@@ -1,6 +1,6 @@
 # img2bw
 
-**img2bw** is a simple command line application to binary images.
+**img2bw** is a simple command-line application to binarize images.
 
 **Supported binarizers:** otsu, isodata, li, local, mean, minimum, multiotsu, niblack, sauvola, triangle, yen.
 
