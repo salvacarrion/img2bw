@@ -38,7 +38,7 @@ def get_files(path, extensions=None, sort=True):
     return valid_files
 
 
-def create_folder(path, empty_folder=True):
+def create_folder(path, empty_folder=False):
     basedir = os.path.basename(path)
 
     # Check output path

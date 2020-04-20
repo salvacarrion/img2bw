@@ -15,7 +15,7 @@ def main():
     # Options
     ALGORITHMS_MODES = img2bw.METHODS_AVAILABLE + ["try-all"]
     parser.add_argument('--method', help="Method used to perform the binarization",
-                        choices=ALGORITHMS_MODES, default=ALGORITHMS_MODES[0])
+                        choices=ALGORITHMS_MODES, default=ALGORITHMS_MODES[8])
     parser.add_argument('--block-size', help="Odd size of pixel neighborhood which is used to calculate the "
                                              "threshold value (local threshold)", default=35, type=int)
     parser.add_argument('--num-classes', help="Number of classes to be thresholded (multiotsu)", default=3, type=int)
