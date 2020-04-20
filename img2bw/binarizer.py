@@ -19,8 +19,8 @@ def binarizer_loader(input_dir, output_dir, method, output_ext="jpg", *args, **k
     files = utils.get_files(input_dir, extensions=VALID_EXTENSIONS)
 
     # Create output folder
-    output_dir = os.path.join(output_dir, "output")
-    utils.create_folder(output_dir, empty_folder=False)
+    # output_dir = os.path.join(output_dir, "output")
+    # utils.create_folder(output_dir, empty_folder=False)
 
     # Walk through images
     for i, filename in enumerate(files, 1):

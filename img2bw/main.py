@@ -8,7 +8,7 @@ def main():
 
     # Mandatory parameters
     parser.add_argument('input', help="Input file or directory")
-    parser.add_argument('-o', '--output', help="Output file or directory", default=None)
+    parser.add_argument('-o', '--output', help="Output directory", default=None)
     parser.add_argument('-e', '--output-ext', help="Output file extension",
                         choices=img2bw.VALID_EXTENSIONS, default=img2bw.VALID_EXTENSIONS[0])
 
