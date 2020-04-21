@@ -29,8 +29,6 @@ def main():
         # Extract text
         img2bw.binarizer_loader(input_dir, output_dir, args.method, args.output_ext,
                                 block_size=args.block_size, num_classes=args.num_classes)
-        print("Done!")
-
     else:
         parser.print_help()
 

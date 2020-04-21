@@ -11,6 +11,9 @@ from pythreshold.global_th import *
 from pythreshold.global_th.entropy import *
 from pythreshold.local_th import *
 
+import warnings  # Not a good idea
+warnings.filterwarnings("ignore")
+
 # Global variables
 METHODS_AVAILABLE = ["otsu", "isodata", "li", "local", "mean", "minimum", "multiotsu",
                      "niblack", "sauvola", "triangle", "yen",
@@ -68,10 +71,12 @@ def binarizer_loader(input_dir, output_dir, method, output_ext="jpg", *args, **k
                 # Save image
                 savepath = f"{output_dir}/{fname}_{m}.{output_ext}"
                 io.imsave(savepath, _img)
-                print(f"\t- [INFO] Image saved! [method: {m}; path: {savepath}")
+                print(f"\t- [INFO] Image saved! [method: {m}]")
             except Exception as e:
-                print(f"\t- [ERROR] We couldn't binarize the image. [method: {m}; path: {filename}")
+                print(f"\t- [ERROR] We couldn't binarize the image. [method: {m}]")
 
+    print("---------------------------------")
+    print(f"- Output directory: {output_dir}")
 
 def load_image(filename):
     return io.imread(filename)
@@ -140,10 +145,11 @@ def binarizer(img, method, *args, **kwargs):
     return binary
 
 
-def normalize(img):
+def normalize(img, epsilon=10e-8):
     img = img.astype(np.float)
-    img = img / np.max(np.abs(img))  # 2D image
-    img = img * (255.0 / img.max())
-    #img = np.nan_to_num(img, nan=0, posinf=0, neginf=0)  # Remove: nan and +-inf (if any)
+    img = np.nan_to_num(img, nan=0, posinf=0, neginf=0)  # just in case
+    img = img / (np.max(np.abs(img))+epsilon)  # 2D image
+    img = img * (255.0 / (img.max() + epsilon))
+    img = np.nan_to_num(img, nan=0, posinf=0, neginf=0)  # just in case
     return img
 

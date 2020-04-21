@@ -38,7 +38,7 @@ img2bw input_dir/ --output output_dir/
 
 ## Thresholding algorithms
 
-- Global thresholding:
+- **Global thresholding:**
     - `otsu`: Otsu, Nobuyuki. "A threshold selection method from gray-level histograms." IEEE transactions on systems, man, and cybernetics 9.1 (1979): 62-66.
     - `p-tile`: Parker, J. R. (2010). Algorithms for image processing and computer vision. John Wiley & Sons. (p-tile)
     - `two-peaks`: Parker, J. R. (2010). Algorithms for image processing and computer vision. John Wiley & Sons. (Two peaks)
@@ -50,13 +50,13 @@ img2bw input_dir/ --output output_dir/
     - `yen`: Yen J.C., Chang F.J., and Chang S. (1995) "A New Criterion for Automatic Multilevel Thresholding" IEEE Trans. on Image Processing, 4(3): 370-378. :DOI:`10.1109/83.366472`
     - `mean`: C. A. Glasbey, "An analysis of histogram-based thresholding algorithms," CVGIP: Graphical Models and Image Processing,vol. 55, pp. 532-537, 1993. :DOI:`10.1006/cgip.1993.1040`
    
-- Entropy thresholding
+- **Entropy thresholding:**
     - `pun`: Pun, T. "A New Method for Grey-Level Picture Thresholding Using the Entropy of the Histogram,"" Signal Processing 2, no. 3 (1980): 223–237.
     - `kapur`: Kapur, J. N., P. K. Sahoo, and A. K. C.Wong. "A New Method for Gray-Level Picture Thresholding Using the Entropy of the Histogram,"" Computer Vision, Graphics, and Image Processing 29, no. 3 (1985): 273–285.
     - `johannsen`: Johannsen, G., and J. Bille "A Threshold Selection Method Using Information Measures,"" Proceedings of the Sixth International Conference on Pattern Recognition, Munich, Germany (1982): 140–143.
     - `li`: Li C.H. and Lee C.K. (1993) "Minimum Cross Entropy Thresholding" Pattern Recognition, 26(4): 617-625 :DOI:`10.1016/0031-3203(93)90115-D`
 
-- Local thresholding:
+- **Local thresholding:**
     - `bradley-roth`: Bradley, D., & Roth, G. (2007). Adaptive thresholding using the integral image. Journal of Graphics Tools, 12(2), 13-21.
     - `bernsen`: Bernsen, J (1986), "Dynamic Thresholding of Grey-Level Images", Proc. of the 8th Int. Conf. on Pattern Recognition
     - `contrast`: Parker, J. R. (2010). Algorithms for image processing and computer vision. John Wiley & Sons. (Contrast thresholding)
