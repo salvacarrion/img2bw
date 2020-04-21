@@ -127,6 +127,7 @@ optional arguments:
                         calculate the threshold value (local threshold)
   -c NUM_CLASSES, --num-classes NUM_CLASSES
                         Number of classes to be thresholded (multiotsu)
+
 ```
 
 
