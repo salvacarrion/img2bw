@@ -15,7 +15,8 @@ import warnings  # Not a good idea
 warnings.filterwarnings("ignore")
 
 # Global variables
-METHODS_AVAILABLE = ["otsu", "isodata", "li", "local", "mean", "minimum", "multiotsu",
+METHODS_AVAILABLE = ["otsu", "isodata", "li", "local-mean", "local-median", "local-gaussian", "mean",
+                     "minimum", "multiotsu",
                      "niblack", "sauvola", "triangle", "yen",
                      "p-tile", "two-peaks", "min-error", "pun", "kapur", "johannsen", "wolf",
                      "nick", "bradley-roth", "bernsen", "contrast", "singh", "feng"]
@@ -92,9 +93,13 @@ def binarizer(img, method, *args, **kwargs):
         thresh = threshold_isodata(img)
     elif method == "li":
         thresh = threshold_li(img)
-    elif method == "local":
-        # thresh = threshold_local(img, block_size=kwargs.get("block_size", 35))
-        thresh = lmean_threshold(img, block_size=kwargs.get("block_size", 35))
+    elif method == "local-mean":
+        thresh = threshold_local(img, block_size=kwargs.get("block_size", 35), method="mean")
+        # thresh = lmean_threshold(img, block_size=kwargs.get("block_size", 35))
+    elif method == "local-median":
+        thresh = threshold_local(img, block_size=kwargs.get("block_size", 35), method="median")
+    elif method == "local-gaussian":
+        thresh = threshold_local(img, block_size=kwargs.get("block_size", 35), method="gaussian")
     elif method == "mean":
         thresh = threshold_mean(img)
     elif method == "minimum":
