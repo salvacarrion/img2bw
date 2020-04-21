@@ -78,6 +78,7 @@ def binarizer_loader(input_dir, output_dir, method, output_ext="jpg", *args, **k
     print("---------------------------------")
     print(f"- Output directory: {output_dir}")
 
+
 def load_image(filename):
     return io.imread(filename)
 
