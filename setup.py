@@ -12,7 +12,7 @@ with open(path.join(this_directory, 'requirements.txt')) as f:
 
 # Setup project
 setup(name='img2bw',
-      version='0.1.6',
+      version='0.2.0',
       description='Command-line application to binarize images',
       long_description=long_description,
       long_description_content_type='text/markdown',
