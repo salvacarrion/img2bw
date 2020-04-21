@@ -7,9 +7,15 @@ from skimage import io
 from skimage.filters import *
 from skimage.color import rgb2gray
 
+from pythreshold.global_th import *
+from pythreshold.global_th.entropy import *
+from pythreshold.local_th import *
+
 # Global variables
 METHODS_AVAILABLE = ["otsu", "isodata", "li", "local", "mean", "minimum", "multiotsu",
-                    "niblack", "sauvola", "triangle", "yen"]
+                     "niblack", "sauvola", "triangle", "yen",
+                     "p-tile", "two-peaks", "min-error", "pun", "kapur", "johannsen", "wolf",
+                     "nick", "bradley-roth", "bernsen", "contract", "singh", "feng"]
 
 VALID_EXTENSIONS = ["jpg", "jpeg", "jfif", "png", "tiff", "bmp", "pnm"]
 
@@ -21,6 +27,11 @@ def binarizer_loader(input_dir, output_dir, method, output_ext="jpg", *args, **k
     # Create output folder
     # output_dir = os.path.join(output_dir, "output")
     # utils.create_folder(output_dir, empty_folder=False)
+
+    # Check if the directory exists
+    if not os.path.exists(output_dir):
+        print("\t- [ERROR] The output directory does not exists")
+        return
 
     # Walk through images
     for i, filename in enumerate(files, 1):
@@ -58,7 +69,6 @@ def binarizer_loader(input_dir, output_dir, method, output_ext="jpg", *args, **k
                 savepath = f"{output_dir}/{fname}_{m}.{output_ext}"
                 io.imsave(savepath, _img)
                 print(f"\t- [INFO] Image saved! [method: {m}; path: {savepath}")
-
             except Exception as e:
                 print(f"\t- [ERROR] We couldn't binarize the image. [method: {m}; path: {filename}")
 
@@ -68,14 +78,17 @@ def load_image(filename):
 
 
 def binarizer(img, method, *args, **kwargs):
+
     if method == "otsu":
         thresh = threshold_otsu(img)
+        # thresh = otsu_threshold(img)
     elif method == "isodata":
         thresh = threshold_isodata(img)
     elif method == "li":
         thresh = threshold_li(img)
     elif method == "local":
         thresh = threshold_local(img, block_size=kwargs.get("block_size", 35))
+        # thresh = lmean_threshold(img, block_size=kwargs.get("block_size", 35))
     elif method == "mean":
         thresh = threshold_mean(img)
     elif method == "minimum":
@@ -86,15 +99,42 @@ def binarizer(img, method, *args, **kwargs):
         return n_nary
     elif method == "niblack":
         thresh = threshold_niblack(img)
+        # thresh = niblack_threshold(img)
     elif method == "sauvola":
         thresh = threshold_sauvola(img)
+        # thresh = sauvola_threshold(img)
     elif method == "triangle":
         thresh = threshold_triangle(img)
     elif method == "yen":
         thresh = threshold_yen(img)
+    elif method == "p-tile":
+        thresh = p_tile_threshold(img, 0.5)
+    elif method == "two-peaks":
+        thresh = two_peaks_threshold(img)
+    elif method == "min-error":
+        thresh = min_err_threshold(img)
+    elif method == "pun":
+        thresh = pun_threshold(img)
+    elif method == "kapur":
+        thresh = kapur_threshold(img)
+    elif method == "johannsen":
+        thresh = johannsen_threshold(img)
+    elif method == "wolf":
+        thresh = wolf_threshold(img)
+    elif method == "nick":
+        thresh = nick_threshold(img)
+    elif method == "bradley-roth":
+        thresh = bradley_roth_threshold(img)
+    elif method == "bernsen":
+        thresh = bernsen_threshold(img)
+    elif method == "contract":
+        thresh = contrast_threshold(img)
+    elif method == "singh":
+        thresh = singh_threshold(img)
+    elif method == "feng":
+        thresh = feng_threshold(img)
     else:
         raise NameError(f"Unknown algorithm '{method}'")
-
     # Apply binarization
     binary = img > thresh
     return binary

@@ -2,7 +2,11 @@
 
 **img2bw** is a simple command-line application to binarize images.
 
-**Binarization algorithms:** `otsu`, `isodata`, `li`, `local`, `mean`, `minimum`, `multiotsu`, `niblack`, `sauvola`, `triangle`, `yen`.
+**Binarization algorithms:** `otsu`, `isodata`, `li`, `local`, `mean`, `minimum`, `multiotsu`, `niblack`, `sauvola`, 
+`triangle`, `yen`, `p-tile`, `two-peaks`, `min-error`, `pun`, `kapur`, `johannsen`, `wolf`,
+`nick`, `bradley-roth`, `bernsen`, `contract`, `singh`, `feng`.
+
+Example:
 
 ![](https://raw.githubusercontent.com/salvacarrion/img2bw/master/data/readme/montaje_small.jpg)
 
@@ -68,3 +72,11 @@ optional arguments:
   -c NUM_CLASSES, --num-classes NUM_CLASSES
                         Number of classes to be thresholded (multiotsu)
 ```
+
+### Additional information
+
+This package is simply wrapper to easily apply multiple threshold algorithms to an image (or a directory).
+I didn't code the algorithms in it so I thank the authors of these libraries that made this wrapper possible:
+
+- [scikit-image](https://scikit-image.org/docs/dev/auto_examples/segmentation/plot_thresholding.html)
+- [pythreshold](https://github.com/manuelaguadomtz/pythreshold)
