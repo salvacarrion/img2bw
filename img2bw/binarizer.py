@@ -3,7 +3,7 @@ from img2bw import utils
 
 import numpy as np
 
-from skimage import io
+from skimage import io, img_as_uint
 from skimage.filters import *
 from skimage.color import rgb2gray
 
@@ -15,7 +15,7 @@ from pythreshold.local_th import *
 METHODS_AVAILABLE = ["otsu", "isodata", "li", "local", "mean", "minimum", "multiotsu",
                      "niblack", "sauvola", "triangle", "yen",
                      "p-tile", "two-peaks", "min-error", "pun", "kapur", "johannsen", "wolf",
-                     "nick", "bradley-roth", "bernsen", "contract", "singh", "feng"]
+                     "nick", "bradley-roth", "bernsen", "contrast", "singh", "feng"]
 
 VALID_EXTENSIONS = ["jpg", "jpeg", "jfif", "png", "tiff", "bmp", "pnm"]
 
@@ -87,8 +87,8 @@ def binarizer(img, method, *args, **kwargs):
     elif method == "li":
         thresh = threshold_li(img)
     elif method == "local":
-        thresh = threshold_local(img, block_size=kwargs.get("block_size", 35))
-        # thresh = lmean_threshold(img, block_size=kwargs.get("block_size", 35))
+        # thresh = threshold_local(img, block_size=kwargs.get("block_size", 35))
+        thresh = lmean_threshold(img, block_size=kwargs.get("block_size", 35))
     elif method == "mean":
         thresh = threshold_mean(img)
     elif method == "minimum":
@@ -127,7 +127,7 @@ def binarizer(img, method, *args, **kwargs):
         thresh = bradley_roth_threshold(img)
     elif method == "bernsen":
         thresh = bernsen_threshold(img)
-    elif method == "contract":
+    elif method == "contrast":
         thresh = contrast_threshold(img)
     elif method == "singh":
         thresh = singh_threshold(img)
@@ -144,6 +144,6 @@ def normalize(img):
     img = img.astype(np.float)
     img = img / np.max(np.abs(img))  # 2D image
     img = img * (255.0 / img.max())
-    img = np.nan_to_num(img, nan=0, posinf=0, neginf=0)  # Remove: nan and +-inf (if any)
+    #img = np.nan_to_num(img, nan=0, posinf=0, neginf=0)  # Remove: nan and +-inf (if any)
     return img
 
